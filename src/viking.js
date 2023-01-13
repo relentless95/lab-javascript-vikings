@@ -42,7 +42,7 @@ class Saxon extends Soldier {
 
     receiveDamage(damage){
         this.health-=damage
-        if(this.health!==0){
+        if(this.health>0){
             return `A Saxon has received ${damage} points of damage`;
         } else{
             return `A Saxon has died in combat`
@@ -97,26 +97,29 @@ class War {
                 i--;
             }
         }
-
         return result
-
-        
-
-
     }
 
-    showStatus(){}
+    showStatus(){
+        if(this.saxonArmy.length==0){
+            return 'Vikings have won the war of the century!'
+        } else if (this.vikingArmy.length==0){
+            return 'Saxons have fought for their lives and survived another day...'
+        } else if(this.vikingArmy.length >= 1 && this.saxonArmy.length >=1){
+            return 'Vikings and Saxons are still in the thick of battle.'
+        }
+    }
 }
 
-const Aviking = new Viking("bjorn", 10, 5)
-console.log(Aviking)
-const Asaxon = new Saxon(9, 3)
-console.log(Asaxon)
-const theWar= new War()
-console.log(theWar)
-console.log(theWar.addSaxon(Asaxon))
-console.log(theWar.addViking(Aviking))
-console.log(theWar.saxonArmy[0])
+// const Aviking = new Viking("bjorn", 10, 5)
+// console.log(Aviking)
+// const Asaxon = new Saxon(9, 3)
+// console.log(Asaxon)
+// const theWar= new War()
+// console.log(theWar)
+// console.log(theWar.addSaxon(Asaxon))
+// console.log(theWar.addViking(Aviking))
+// console.log(theWar.saxonArmy[0])
 // console.log(theWar.addViking(Aviking))
 // console.log(theWar.addViking(Aviking))
 // console.log(theWar.addSaxon(Asaxon))
